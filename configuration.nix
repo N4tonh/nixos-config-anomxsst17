@@ -36,7 +36,6 @@
   };
 
   # NVIDIA Drivers
-  services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
   	modesetting.enable = true;
@@ -102,11 +101,32 @@
   # Enable the X11 windowing system and KDE Plasma
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # services.desktopManager.plasma6.enable = true;
+  
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+    config.common.default = "*";
+  };
+  
+  # Enable hyprland, niri & DMS
+  programs.niri.enable = true;
+  programs.hyprland.enable = true;
+  programs.dms-shell = {
+    enable = true;
 
-  # Enable COSMIC Desktop
-  services.desktopManager.cosmic.enable = true;
-
+    systemd = {
+      enable = true;             # Systemd service for auto-start
+      restartIfChanged = true;   # Auto-restart dms.service when dms-shell changes
+    };
+  
+    # Core features
+    enableSystemMonitoring = true;     # System monitoring widgets (dgop)
+    enableVPN = true;                  # VPN management widget
+    enableDynamicTheming = true;       # Wallpaper-based theming (matugen)
+    enableAudioWavelength = true;      # Audio visualizer (cava)
+    enableClipboardPaste = true;       # Pasting from the clipboard history (wtype)
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -161,6 +181,10 @@
     fastfetch
     qemu
     distrobox
+    kitty
+    dsearch
+    xwayland
+    xwayland-satellite
   ];
   
   # FISH SHELL
