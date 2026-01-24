@@ -104,6 +104,10 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
+  # Enable COSMIC Desktop
+  services.desktopManager.cosmic.enable = true;
+
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "es";
@@ -141,9 +145,6 @@
     #  thunderbird
     ];
   };
-
-  # Install firefox.
-  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

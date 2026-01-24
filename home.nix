@@ -20,7 +20,15 @@
 	discord
   ];
 
+  # Home-manager
   programs.home-manager.enable = true;
+
+  # Git
+  programs.git = {
+  	enable = true;
+	userName = "N4tonh";
+	userEmail = "n4tonh@proton.me";
+  };
 
   # --- FISH & STARSHIP ---
 
