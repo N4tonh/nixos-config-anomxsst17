@@ -18,6 +18,7 @@
 	fzf
 	grc
 	discord
+	kdePackages.dolphin
   ];
 
   # Home-manager

@@ -185,6 +185,7 @@
     dsearch
     xwayland
     xwayland-satellite
+    unzip
   ];
   
   # FISH SHELL
