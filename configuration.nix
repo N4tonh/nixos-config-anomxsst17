@@ -101,7 +101,6 @@
 
   # Enable the X11 windowing system and KDE Plasma
   services.xserver.enable = true;
-  services.displayManager.sddm.enable = true;
   # services.desktopManager.plasma6.enable = true;
   
   xdg.portal = {
@@ -112,7 +111,6 @@
   
   # Enable hyprland, niri & DMS
   programs.niri.enable = true;
-  programs.hyprland.enable = true;
   programs.dms-shell = {
     enable = true;
 
@@ -120,13 +118,19 @@
       enable = true;             # Systemd service for auto-start
       restartIfChanged = true;   # Auto-restart dms.service when dms-shell changes
     };
-  
+
     # Core features
     enableSystemMonitoring = true;     # System monitoring widgets (dgop)
     enableVPN = true;                  # VPN management widget
     enableDynamicTheming = true;       # Wallpaper-based theming (matugen)
     enableAudioWavelength = true;      # Audio visualizer (cava)
     enableClipboardPaste = true;       # Pasting from the clipboard history (wtype)
+  };
+
+  # DMS Greeter
+  services.displayManager.dms-greeter = {
+    enable = true;
+    compositor.name = "niri";  # Or "hyprland" or "sway"
   };
 
   # Configure keymap in X11

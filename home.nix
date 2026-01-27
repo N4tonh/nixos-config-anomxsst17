@@ -19,6 +19,8 @@
 	grc
 	discord
 	kdePackages.dolphin
+	ferdium
+	antigravity
   ];
 
   # Home-manager
