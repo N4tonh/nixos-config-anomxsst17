@@ -191,11 +191,22 @@
     xwayland
     xwayland-satellite
     unzip
+    jq
   ];
   
   # FISH SHELL
   users.users.anomxsst17.shell = pkgs.fish;
   programs.fish.enable = true;
+
+  # nix-ld
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
+    openssl
+    zlib
+    # Añade aquí otras dependencias si la app las pide luego
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
