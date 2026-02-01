@@ -171,6 +171,9 @@
     ];
   };
 
+  # Allow flatpak
+  services.flatpak.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -182,7 +185,6 @@
     neovim
     wireguard-tools
     protonvpn-gui
-    flatpak
     fastfetch
     qemu
     distrobox

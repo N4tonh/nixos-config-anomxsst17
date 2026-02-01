@@ -22,7 +22,6 @@
 	ferdium
 	antigravity
 	obsidian
-	notion-app-enhanced
   ];
 
   # Home-manager
