@@ -21,6 +21,7 @@
 	kdePackages.dolphin
 	ferdium
 	antigravity
+	obsidian
   ];
 
   # Home-manager
