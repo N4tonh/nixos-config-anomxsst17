@@ -22,6 +22,7 @@
 	ferdium
 	antigravity
 	obsidian
+	qutebrowser
   ];
 
   # Home-manager
