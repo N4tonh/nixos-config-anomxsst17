@@ -18,11 +18,12 @@
 	fzf
 	grc
 	discord
-	kdePackages.dolphin
+	sfm
 	ferdium
 	antigravity
 	obsidian
 	qutebrowser
+	scrcpy
   ];
 
   # Home-manager

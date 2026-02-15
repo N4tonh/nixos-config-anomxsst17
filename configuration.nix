@@ -194,6 +194,7 @@
     xwayland-satellite
     unzip
     jq
+    nodejs_25
   ];
   
   # FISH SHELL
