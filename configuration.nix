@@ -29,6 +29,7 @@
   # aceleración por hardware
   hardware.graphics = {
     enable = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       intel-vaapi-driver
       libvdpau-va-gl
@@ -99,9 +100,7 @@
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Enable the X11 windowing system and KDE Plasma
-  services.xserver.enable = true;
-  # services.desktopManager.plasma6.enable = true;
+  # Enabl
   
   xdg.portal = {
     enable = true;
@@ -139,7 +138,16 @@
     variant = "winkeys";
   };
 
-  # Configure console keymap
+# Para que nautilus vea el fucking mierda de ceular
+services.gvfs.enable = true;
+services.udisks2.enable = true;
+
+
+# XWAYLAND MALDITA SEAAAAAAAAAAAAAAAAAAAAA
+
+programs.xwayland.enable = true;
+
+# Configure console keymap
   console.keyMap = "es";
 
   # Enable sound with pipewire.
@@ -165,7 +173,7 @@
   users.users.anomxsst17 = {
     isNormalUser = true;
     description = "ANOMXSST";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "adbusers" "kvm" ];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -195,6 +203,7 @@
     unzip
     jq
     nodejs_25
+    android-tools
   ];
   
   # FISH SHELL

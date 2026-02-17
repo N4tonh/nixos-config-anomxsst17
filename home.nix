@@ -18,12 +18,12 @@
 	fzf
 	grc
 	discord
-	sfm
 	ferdium
 	antigravity
 	obsidian
-	qutebrowser
 	scrcpy
+	nautilus
+	sillytavern
   ];
 
   # Home-manager
