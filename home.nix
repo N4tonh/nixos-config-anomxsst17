@@ -24,6 +24,7 @@
 	scrcpy
 	nautilus
 	sillytavern
+	calibre
   ];
 
   # Home-manager
