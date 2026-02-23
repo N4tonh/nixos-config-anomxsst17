@@ -204,6 +204,7 @@ programs.xwayland.enable = true;
     jq
     nodejs_25
     android-tools
+    llama-cpp
   ];
   
   # FISH SHELL

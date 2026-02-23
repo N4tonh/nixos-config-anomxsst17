@@ -14,17 +14,15 @@
 	duf
 	vscode
 	librewolf
-	nyxt
 	fzf
 	grc
-	discord
 	ferdium
 	antigravity
 	obsidian
-	scrcpy
 	nautilus
 	sillytavern
 	calibre
+	gemini-cli
   ];
 
   # Home-manager
