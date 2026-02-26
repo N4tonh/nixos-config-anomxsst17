@@ -17,8 +17,10 @@
 
   # --- HARDWARE & DRIVERS ---
 
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # Kernel
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages
+
 
   # zRam para optimizar RAM
   zramSwap.enable = true;
@@ -100,7 +102,9 @@
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Enabl
+  #################################################################################
+  ############## DESKTOP ##########################################################
+  #################################################################################
   
   xdg.portal = {
     enable = true;
@@ -127,10 +131,26 @@
   };
 
   # DMS Greeter
-  services.displayManager.dms-greeter = {
-    enable = true;
-    compositor.name = "niri";  # Or "hyprland" or "sway"
+  #services.displayManager.dms-greeter = {
+  #  enable = true;
+  #  compositor.name = "niri";  # Or "hyprland" or "sway"
+  #};
+
+
+  # COSMIC AND COSMIC GREETER
+  services.desktopManager.cosmic.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
+  services.system76-scheduler.enable = true;
+  environment.sessionVariables = {
+    COSMIC_DATA_CONTROL_ENABLED = "1"; 
   };
+
+  environment.cosmic.excludePackages = with pkgs; [
+    cosmic-edit
+    cosmic-term     # Útil excluirlo si ya tienes una terminal hiper-optimizada
+    cosmic-store    # Totalmente innecesario al gestionar todo vía Nix
+    cosmic-reader
+  ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -138,14 +158,17 @@
     variant = "winkeys";
   };
 
-# Para que nautilus vea el fucking mierda de ceular
+# Para que el gestor de archivos reconozca el celular por USB
 services.gvfs.enable = true;
 services.udisks2.enable = true;
 
 
-# XWAYLAND MALDITA SEAAAAAAAAAAAAAAAAAAAAA
-
+# XWAYLAND
 programs.xwayland.enable = true;
+
+
+################### END OF DESKTOP #######################################################
+##########################################################################################
 
 # Configure console keymap
   console.keyMap = "es";
