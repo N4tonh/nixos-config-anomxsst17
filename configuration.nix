@@ -202,9 +202,16 @@ programs.xwayland.enable = true;
     xwayland-satellite
     unzip
     jq
+    llama-cpp
+    # Development of Android Apps
     nodejs_25
     android-tools
-    llama-cpp
+    android-studio
+    flutter
+    dart
+    jdk17
+    pkg-config
+    gnumake
   ];
   
   # FISH SHELL
