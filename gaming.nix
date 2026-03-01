@@ -10,9 +10,6 @@
   hardware.graphics.enable32Bit = true;
 
   environment.systemPackages = with pkgs; [
-  	lutris
-	heroic
-	bottles
 	protonup-qt
 	mangohud
 	wineWowPackages.stagingFull

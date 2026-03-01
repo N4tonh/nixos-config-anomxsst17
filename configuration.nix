@@ -18,8 +18,8 @@
   # --- HARDWARE & DRIVERS ---
 
   # Kernel
-  # boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.kernelPackages = pkgs.linuxPackages
+  #boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages;
 
 
   # zRam para optimizar RAM
@@ -112,7 +112,7 @@
     config.common.default = "*";
   };
   
-  # Enable hyprland, niri & DMS
+  # Enable niri & DMS
   programs.niri.enable = true;
   programs.dms-shell = {
     enable = true;
@@ -131,26 +131,14 @@
   };
 
   # DMS Greeter
-  #services.displayManager.dms-greeter = {
-  #  enable = true;
-  #  compositor.name = "niri";  # Or "hyprland" or "sway"
-  #};
-
-
-  # COSMIC AND COSMIC GREETER
-  services.desktopManager.cosmic.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
-  services.system76-scheduler.enable = true;
-  environment.sessionVariables = {
-    COSMIC_DATA_CONTROL_ENABLED = "1"; 
+  services.displayManager.dms-greeter = {
+    enable = true;
+    compositor.name = "niri";  # Or "hyprland" or "sway"
   };
 
-  environment.cosmic.excludePackages = with pkgs; [
-    cosmic-edit
-    cosmic-term     # Útil excluirlo si ya tienes una terminal hiper-optimizada
-    cosmic-store    # Totalmente innecesario al gestionar todo vía Nix
-    cosmic-reader
-  ];
+
+  # X11
+  services.xserver.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -226,15 +214,7 @@ programs.xwayland.enable = true;
     unzip
     jq
     llama-cpp
-    # Development of Android Apps
     nodejs_25
-    android-tools
-    android-studio
-    flutter
-    dart
-    jdk17
-    pkg-config
-    gnumake
   ];
   
   # FISH SHELL
@@ -260,6 +240,9 @@ programs.xwayland.enable = true;
   # };
 
   # List services that you want to enable:
+   
+  services.tailscale.enable = true;
+  networking.firewall.allowedTCPPorts = [ 3080 ];
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
