@@ -130,15 +130,30 @@
     enableClipboardPaste = true;       # Pasting from the clipboard history (wtype)
   };
 
-  # DMS Greeter
-  services.displayManager.dms-greeter = {
+  # Enable KDE Plasma 6 and SDDM
+  
+  services.desktopManager.plasma6.enable = true;
+
+  services.displayManager.sddm = {
     enable = true;
-    compositor.name = "niri";  # Or "hyprland" or "sway"
+    wayland.enable = true;
   };
-
-
-  # X11
-  services.xserver.enable = true;
+    
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    konsole
+    elisa
+    ark
+    gwenview
+    okular
+    kate
+    khelpcenter
+    dolphin
+    baloo-widgets
+    dolphin-plugins
+    spectacle
+    ffmpegthumbs
+    krdp
+  ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -146,13 +161,13 @@
     variant = "winkeys";
   };
 
-# Para que el gestor de archivos reconozca el celular por USB
-services.gvfs.enable = true;
-services.udisks2.enable = true;
+  # Para que el gestor de archivos reconozca el celular por USB
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
 
 
-# XWAYLAND
-programs.xwayland.enable = true;
+  # XWAYLAND
+  programs.xwayland.enable = true;
 
 
 ################### END OF DESKTOP #######################################################
