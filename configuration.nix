@@ -72,13 +72,13 @@
     containers.enable = true;
     podman = {
       enable = true;
-      dockerCompat = true;
+      dockerCompat = false;
     };
   };
 
-  #virtualisation.docker = {
-  #  enable = true;
-  #};
+  virtualisation.docker = {
+    enable = true;
+  };
 
   ###########################################################################
   # --- FIN DE VIRTUALIZACIÓN Y CONTENEDORES --- ############################
