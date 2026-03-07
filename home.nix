@@ -17,7 +17,13 @@
 	fzf
 	grc
 	ferdium
-	antigravity
+	(antigravity.overrideAttrs (old: {
+	  version = "1.19.6";
+	  src = pkgs.fetchurl {
+	    url = "https://edgedl.me.gvt1.com/edgedl/release2/j0qc3/antigravity/stable/1.19.6-6514342219874304/linux-x64/Antigravity.tar.gz";
+	    hash = "sha256-gFIsnWC8wEuxPUD6E2YB0YTcg/NruQZespzEVttMKeE=";
+	  };
+	}))
 	obsidian
 	nautilus
 	sillytavern

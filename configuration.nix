@@ -59,17 +59,30 @@
 
   nixpkgs.config.nvidia.acceptLicense = true;
 
-
-  # --- VIRTUALIZACIÓN Y CONTENEDORES ---
+  ##########################################################################
+  # --- VIRTUALIZACIÓN Y CONTENEDORES --- ##################################
+  ##########################################################################
 
   # Virtualbox
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "anomxsst17" ];
 
-  # Docker
-  virtualisation.docker = {
-    enable = true;
+  # Podman for Distrobox
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+    };
   };
+
+  #virtualisation.docker = {
+  #  enable = true;
+  #};
+
+  ###########################################################################
+  # --- FIN DE VIRTUALIZACIÓN Y CONTENEDORES --- ############################
+  ###########################################################################
 
   networking.hostName = "twarlien"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -169,9 +182,9 @@
   # XWAYLAND
   programs.xwayland.enable = true;
 
-
-################### END OF DESKTOP #######################################################
-##########################################################################################
+####################################################################################
+################### END OF DESKTOP #################################################
+####################################################################################
 
 # Configure console keymap
   console.keyMap = "es";
@@ -199,7 +212,7 @@
   users.users.anomxsst17 = {
     isNormalUser = true;
     description = "ANOMXSST";
-    extraGroups = [ "networkmanager" "wheel" "docker" "adbusers" "kvm" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "adbusers" "kvm" "podman" ];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -214,7 +227,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     neovim
     wireguard-tools
