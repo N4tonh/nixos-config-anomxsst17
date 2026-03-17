@@ -29,6 +29,7 @@
 	sillytavern
 	calibre
 	gemini-cli
+	warp-terminal
   ];
 
   # Home-manager

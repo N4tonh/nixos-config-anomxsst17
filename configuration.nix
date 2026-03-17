@@ -242,6 +242,8 @@
     jq
     llama-cpp
     nodejs_25
+    lynx
+    ddgr
   ];
   
   # FISH SHELL
@@ -269,7 +271,7 @@
   # List services that you want to enable:
    
   services.tailscale.enable = true;
-  networking.firewall.allowedTCPPorts = [ 3080 ];
+  networking.firewall.allowedTCPPorts = [ 3080 4000 ];
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
