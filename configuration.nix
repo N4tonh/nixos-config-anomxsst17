@@ -271,7 +271,21 @@
   # List services that you want to enable:
    
   services.tailscale.enable = true;
-  networking.firewall.allowedTCPPorts = [ 3080 4000 ];
+  networking.firewall.allowedTCPPorts = [ 22 3080 4000 3002 ];
+
+
+  services.openssh = { 
+  	enable = true;
+	ports = [ 22 ];
+	settings = {
+		PasswordAuthentication = true;
+		PermitRootLogin = "no";
+		AllowUsers = [ "u0_a36" ];
+	};
+  };
+
+  services.fail2ban.enable = true;
+  	
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

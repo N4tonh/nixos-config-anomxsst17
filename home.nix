@@ -7,13 +7,10 @@
   home.packages = with pkgs; [
   	bitwarden-desktop
 	brave
-	spotify
 	fish
 	fastfetch
 	foliate
 	duf
-	vscode
-	librewolf
 	fzf
 	grc
 	ferdium
@@ -29,7 +26,9 @@
 	sillytavern
 	calibre
 	gemini-cli
-	warp-terminal
+	gh
+	github-copilot-cli
+	fishPlugins.github-copilot-cli-fish
   ];
 
   # Home-manager
